@@ -18,6 +18,7 @@ public class PedidoService {
     public Pedido createPedido(Pedido pedido){
         Usuario usuario = usuarioAutenticadoService.getUsuarioAutenticado();
         pedido.setUsuario(usuario);
+        return pedidoRepository.save(pedido);
 
     }
 

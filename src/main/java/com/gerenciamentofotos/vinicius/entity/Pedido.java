@@ -17,6 +17,7 @@ public class Pedido {
 
     private String nomeCliente;
     private String observacao;
+    private Status status;
 
     @CreationTimestamp
     private LocalDateTime timestamp;

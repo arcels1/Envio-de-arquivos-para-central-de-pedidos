@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -17,14 +19,27 @@ public class Pedido {
 
     private String nomeCliente;
     private String observacao;
-    private Status status;
+    @Enumerated(EnumType.STRING)
+    private Status status ;
 
     @CreationTimestamp
     private LocalDateTime timestamp;
 
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<ArquivoFotos> arquivos = new ArrayList<>();
+
     @ManyToOne
     @JoinColumn(name = "usuarioId")
     private Usuario usuario;
+
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public UUID getId() {
         return id;

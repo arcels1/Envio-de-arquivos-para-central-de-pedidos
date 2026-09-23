@@ -17,9 +17,10 @@ public class ArquivoFotos {
     private String papel;
     private String pathArquivos;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pedidoId")
     private Pedido pedido;
+
 
 
 }

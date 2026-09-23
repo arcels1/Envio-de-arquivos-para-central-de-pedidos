@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+D:\Envio-de-arquivos-para-central-de-pedidos-main\Envio-de-arquivos-para-central-de-pedidos-main\.metadata\.plugins\org.eclipse.jdt.core
+1067094681.index
+3718880828.index
+1865797976.index

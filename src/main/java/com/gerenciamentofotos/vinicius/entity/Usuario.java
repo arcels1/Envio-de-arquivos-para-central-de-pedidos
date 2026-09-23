@@ -16,7 +16,14 @@ public class Usuario {
     private String senha;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private Boolean ativo = Boolean.TRUE;
+    private Boolean ativo;
+
+    public Usuario(String nome, String senha, Role role) {
+        this.nome = nome;
+        this.senha = senha;
+        this.role = role;
+
+    }
 
     public Boolean getAtivo() {
         return ativo;

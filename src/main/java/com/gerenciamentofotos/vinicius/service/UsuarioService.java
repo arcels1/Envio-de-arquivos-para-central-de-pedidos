@@ -36,7 +36,9 @@ public class UsuarioService {
 
 
     public UsuarioResponseDTO criarUsuario(UsuarioRequestDTO usuarioDTO){
-        return usuarioParaDTO(usuarioRepository.save(usuarioDTO.toEntity()));
+        Usuario usuario = usuarioDTO.toEntity();
+        usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+        return usuarioParaDTO(usuarioRepository.save(usuario));
     }
 
     public Usuario getUsuarioPorID(UUID id){

@@ -18,11 +18,15 @@ public class Usuario {
     private Role role;
     private Boolean ativo;
 
+    protected Usuario() {
+        // Construtor utilizado pelo JPA.
+    }
+
     public Usuario(String nome, String senha, Role role) {
         this.nome = nome;
         this.senha = senha;
         this.role = role;
-
+        this.ativo = true;
     }
 
     public Boolean getAtivo() {

@@ -2,6 +2,7 @@ package com.gerenciamentofotos.vinicius.service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.gerenciamentofotos.vinicius.entity.Usuario;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -29,5 +30,11 @@ public class JwtService {
                 .withExpiresAt(agora.plusSeconds(3600))
                 .sign(Algorithm.HMAC512(secretKey.getEncoded()));
 
+    }
+
+    public DecodedJWT validarToken(String token) {
+        return JWT.require(Algorithm.HMAC512(secretKey.getEncoded()))
+                .build()
+                .verify(token);
     }
 }
